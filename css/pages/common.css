@@ -18,6 +18,12 @@ body {
     width: 100%;
 }
 
+main.help {
+    /*se realizo para cuando este la pantalla maxmiada se vea como el resultado deejemplo del pdf*/
+    width: 68%;
+    margin-left: 16%;
+}
+
 ul {
     list-style: none;
     padding: 0;

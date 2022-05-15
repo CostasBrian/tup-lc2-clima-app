@@ -1,0 +1,57 @@
+    .form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    textarea,
+    input {
+        border-radius: 6px;
+        width: 340px;
+    }
+    
+    input {
+        height: 40px;
+    }
+    
+    .inputs {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .button {
+        text-decoration: none;
+        border: 0px;
+        background-color: #00594c;
+        color: white;
+        border-radius: 8px;
+        padding: 10px;
+        width: fit-content;
+        margin: 10px 3px 30px;
+    }
+    
+    label {
+        margin: 5px 0 0;
+    }
+    
+    main p {
+        margin: 0 0 20px;
+        line-height: 1;
+    }
+    
+    section p {
+        font-size: 14px;
+        color: white;
+        background-color: #dc3545;
+        border-radius: 15px;
+        width: 400px;
+        text-align: center;
+        padding: 15px;
+    }
+    /*se realizo para cuando este la pantalla maximizada se vea como el resultado del ejemplo del pdf*/
+    
+    @media (min-width: 1001px) {
+        main.help {
+            width: 72%;
+            margin-left: 16%;
+        }
+    }

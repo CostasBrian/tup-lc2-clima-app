@@ -18,10 +18,48 @@ body {
     width: 100%;
 }
 
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--color-theme);
+    border-radius: 0 0 30px 30px;
+    border-bottom: #5df2d6 solid 2px;
+}
+
+main {
+    margin-top: 120px;
+    overflow: auto;
+    padding: 16px;
+    padding-bottom: 60px;
+    height: calc(100% - 120px);
+}
+
 main.help {
     /*se realizo para cuando este la pantalla maximizada se vea como el resultado del ejemplo del pdf*/
     width: 68%;
     margin-left: 16%;
+}
+
+main section {
+    display: flex;
+    justify-content: space-around;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    background: var(--color-theme);
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: #5df2d6 solid 2px;
+}
+
+footer p {
+    font-size: small;
+    color: white;
 }
 
 ul {
@@ -34,15 +72,6 @@ button,
 a {
     user-select: none;
     -webkit-user-select: none;
-}
-
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: var(--color-theme);
-    border-radius: 0 0 30px 30px;
-    border-bottom: #5df2d6 solid 2px;
 }
 
 nav>ul {
@@ -69,14 +98,6 @@ nav li.current-page a {
     color: var(--color-theme);
     background-color: var(--color-active);
     pointer-events: none;
-}
-
-main {
-    margin-top: 120px;
-    overflow: auto;
-    padding: 16px;
-    padding-bottom: 60px;
-    height: calc(100% - 120px);
 }
 
 h1 {
@@ -118,28 +139,6 @@ h2 {
 
 h3 {
     color: var(--color-theme);
-    margin: 8px 0;
-}
-
-main section {
-    display: flex;
-    justify-content: space-around;
-}
-
-footer {
-    position: fixed;
-    bottom: 0px;
-    background: var(--color-theme);
-    width: 100%;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-top: #5df2d6 solid 2px;
-}
-
-footer p {
-    font-size: small;
-    color: white;
 }
 
 main p {

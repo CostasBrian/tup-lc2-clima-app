@@ -35,6 +35,16 @@ main {
     height: calc(100% - 120px);
 }
 
+main p {
+    margin-bottom: 16px;
+}
+
+h2 {
+    color: var(--color-theme);
+    margin: 16px 0;
+    text-align: center;
+}
+
 main.help {
     /*se realizo para cuando este la pantalla maximizada se vea como el resultado del ejemplo del pdf*/
     width: 68%;
@@ -98,6 +108,7 @@ nav li.current-page a {
     color: var(--color-theme);
     background-color: var(--color-active);
     pointer-events: none;
+    border-radius: 8px 8px 0 0;
 }
 
 h1 {
@@ -106,43 +117,9 @@ h1 {
     color: white;
 }
 
-#seleccionable {
-    border-radius: 5px;
-}
-
-div.card {
-    border-radius: 25px;
-    box-shadow: 3px 3px 6px 4px rgb(0 0 0 / 50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-    width: 200px;
-}
-
-div.card p {
-    font-size: 12px;
-    margin: 2px;
-    font-weight: 700;
-}
-
 h1>img {
     width: 70px;
     vertical-align: middle;
-}
-
-h2 {
-    color: var(--color-theme);
-    margin: 16px 0;
-    text-align: center;
-}
-
-h3 {
-    color: var(--color-theme);
-}
-
-main p {
-    margin-bottom: 16px;
 }
 
 

@@ -4,26 +4,24 @@
     align-items: center;
 }
 
-label {
+.form label {
     font-size: 15px;
     font-weight: 600;
 }
 
-#ciudad_a_agregar {
+.form #ciudad_a_agregar {
     border-radius: 5px;
     width: 100%;
     height: 35px;
 }
 
-.button {
-    text-decoration: none;
+.form .button {
     border: 0px;
     background-color: #00594c;
     color: white;
     border-radius: 8px;
     font-weight: 600;
     padding: 10px;
-    width: fit-content;
     margin-top: 10px;
 }
 
@@ -34,7 +32,7 @@ label {
     padding: 22px;
 }
 
-p {
+.mesages p {
     font-size: 14px;
     text-align: center;
     color: white;
@@ -44,14 +42,14 @@ p {
     width: 450px;
 }
 
-.m_uno {
+.mesages .m_uno {
     background-color: #28a745;
 }
 
-.m_dos {
+.mesages .m_dos {
     background-color: #dc3545;
 }
 
-.m_tres {
+.mesages .m_tres {
     background-color: #ffc107;
 }

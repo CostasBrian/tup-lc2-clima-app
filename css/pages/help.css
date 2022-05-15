@@ -3,31 +3,31 @@ main p {
     line-height: 1;
 }
 
-.form {
+form.form {
     display: flex;
     flex-direction: column;
 }
 
-.form label {
+form.form label {
     margin: 5px 0 0;
 }
 
-input {
+form.form input {
     height: 40px;
 }
 
-.form textarea,
+form.form textarea,
 input {
     border-radius: 6px;
     width: 340px;
 }
 
-.inputs {
+div.inputs {
     display: flex;
     justify-content: center;
 }
 
-.inputs .button {
+div.inputs .button {
     border: 0px;
     background-color: #00594c;
     color: white;

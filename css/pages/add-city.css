@@ -1,21 +1,21 @@
-.form {
+form.form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.form label {
+form.form label {
     font-size: 15px;
     font-weight: 600;
 }
 
-.form #ciudad_a_agregar {
+form.form #ciudad_a_agregar {
     border-radius: 5px;
     width: 100%;
     height: 35px;
 }
 
-.form .button {
+form.form .button {
     border: 0px;
     background-color: #00594c;
     color: white;
@@ -25,14 +25,14 @@
     margin-top: 10px;
 }
 
-.mesages {
+section.mesages {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 22px;
 }
 
-.mesages p {
+section.mesages p {
     font-size: 14px;
     text-align: center;
     color: white;
@@ -42,14 +42,14 @@
     width: 450px;
 }
 
-.mesages .m_uno {
+section.mesages .m_uno {
     background-color: #28a745;
 }
 
-.mesages .m_dos {
+section.mesages .m_dos {
     background-color: #dc3545;
 }
 
-.mesages .m_tres {
+section.mesages .m_tres {
     background-color: #ffc107;
 }

@@ -2,11 +2,12 @@ select#seleccionable {
     border-radius: 5px;
     padding: 5px;
     font-weight: 600;
+    height: 35px;
 }
 
 input.button {
     border: 0px;
-    background-color: #00594c;
+    background-color: var(--color-theme);
     color: white;
     border-radius: 8px;
     height: 35px;
@@ -22,7 +23,7 @@ div.card {
     border-radius: 25px;
     box-shadow: 3px 3px 6px 4px rgb(0 0 0 / 50%);
     margin-top: 30px;
-    padding: 0px 10px 5px;
+    padding: 5px 10px 5px;
 }
 
 div.card h3 {

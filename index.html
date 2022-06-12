@@ -9,6 +9,9 @@
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/pages/index.css">
+    <!-- <script defer src="js/common.js"></script>
+     -->
+    <script defer src="js/pages/index.js"></script>
 </head>
 
 <body>
@@ -29,14 +32,12 @@
     <main>
         <h2>El Clima Ahora</h2>
         <section id="form-city-list">
-            <form>
+            <form id="form">
                 <!-- Sección donde se debe colocar el formulario, con el select y el botón de consultar -->
                 <select name="seleccionable" id="seleccionable">
-                    <option value="" disabled selected>Seleccionar Ciudad</option>
-                    <option value="ROSARIO">Rosario</option>
-                    <option value="RAFAELA">Rafaela</option>
+                    <!-- aca se crea codigo mediante js -->
                 </select>
-                <input class="button" type="submit" value="Consultar">
+                <input id="consultar" class="button" type="button" value="Consultar">
             </form>
         </section>
         <section id="section-weather-result">
@@ -44,11 +45,11 @@
             <div class="card">
                 <h3>Rosario</h3>
                 <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="icono clima soleado">
-                <p>Temperatura: 13.76°</p>
-                <p>Sensacion térmica: 12.91°</p>
-                <p>Humedad: 66%</p>
-                <p>Velocidad del viento: 2.06km/h</p>
-                <p>Presión: 1024 P</p>
+                <p id="temp">Temperatura: 13.76°</p>
+                <p id="sensacion">Sensacion térmica: 12.91°</p>
+                <p id="humedad">Humedad: 66%</p>
+                <p id="viento">Velocidad del viento: 2.06km/h</p>
+                <p id="presion">Presión: 1024 P</p>
             </div>
         </section>
     </main>

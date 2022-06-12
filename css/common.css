@@ -121,15 +121,15 @@ section.mesages p {
     line-height: 1;
 }
 
-section.mesages .m_uno {
+section.mesages .mesage_exito {
     background-color: #28a745;
 }
 
-section.mesages .m_dos {
+section.mesages .mesage_error {
     background-color: #dc3545;
 }
 
-section.mesages .m_tres {
+section.mesages .mesage_encontrada {
     background-color: #ffc107;
 }
 

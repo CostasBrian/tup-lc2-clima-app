@@ -136,6 +136,11 @@ section.mesages #found {
     background-color: #ffc107;
 }
 
+section.mesages #empty {
+    display: block;
+    background-color: #dc3545;
+}
+
 
 /* Media Query: Estilos a aplicar sólo en pantallas mayores a 400px */
 

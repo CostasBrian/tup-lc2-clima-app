@@ -35,6 +35,7 @@
             <form id="form">
                 <!-- Sección donde se debe colocar el formulario, con el select y el botón de consultar -->
                 <select name="seleccionable" id="seleccionable">
+                    <option disabled selected >Seleccionar Ciudad</option>
                     <!-- aca se crea codigo mediante js -->
                 </select>
                 <input id="consultar" class="button" type="button" value="Consultar">
@@ -42,6 +43,9 @@
         </section>
         <section id="section-weather-result">
             <!-- Sección donde se debe mostrar el clima de la ciudad -->
+            <section class="mesages">
+                <p id="empty">No hay ciudades cargadas</p>
+            </section>
             <div class="card">
                 <h3>Rosario</h3>
                 <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="icono clima soleado">

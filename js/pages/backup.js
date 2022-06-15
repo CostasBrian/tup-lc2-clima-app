@@ -22,12 +22,14 @@ function leerLocal() {
     return lista //devuelve la lista convertida para en arreglo para agregarle la ciudad
 }
 //---------------------------------------------------------------------------------------------------------------------------
-//funcion para cargar las ciudades al storage 
+//fubcion para cargar las ciudades al storage 
 function cargarLocal() {
     let ciudades = leerLocal() /*leo la lista generada en otra funcion */
     ciudades.push(ciudad.value) /*agrego la ciudad a la lista*/
     localStorage.setItem("Lista_Ciudades", JSON.stringify(ciudades)); /*fijo los elementos al session storage */
+    console.log("123")
     exito_mesage()
+    time()
     limpiarInput()
 }
 
@@ -37,35 +39,45 @@ function limpiarInput() {
     ciudad.value = ""
 }
 //----------------------------------------------------------------------------------------------------------------------------
-//funciones para mostrar mensajes y ocultarlos
-function exito_mesage() {
-    setTimeout(() => {
-        document.getElementById("succes").style.display = "block";
-    }, 0);
+function error_mesage() {
+    document.getElementById("error").style.display = "block"
+}
 
-    setTimeout(() => {
-        document.getElementById("succes").style.display = "none";
-    }, 3000);
+function hide_error_mesage() {
+    document.getElementById("error").style.display = "none"
+}
+//----------------------------------------------------------------------------------------------------------------------------
+function exito_mesage() {
+    document.getElementById("succes").style.display = "block"
+}
+
+function hide_exito_mesage() {
+    document.getElementById("succes").style.display = "none"
 }
 //----------------------------------------------------------------------------------------------------------------------------
 function found_mesage() {
-    setTimeout(() => {
-        document.getElementById("found").style.display = "block";
-    }, 0);
+    document.getElementById("found").style.display = "block"
 
-    setTimeout(() => {
-        document.getElementById("found").style.display = "none";
-    }, 3000);
+}
+
+function hide_found_mesage() {
+    document.getElementById("found").style.display = "none"
+
 }
 //----------------------------------------------------------------------------------------------------------------------------
-function error_mesage() {
-    setTimeout(() => {
-        document.getElementById("error").style.display = "block";
+function exito_mesage() {
+    setTimeout(function() {
+        document.getElementById("succes").style.display = "block";
     }, 0);
 
-    setTimeout(() => {
-        document.getElementById("error").style.display = "none";
-    }, 3000);
+    setTimeout(function() {
+        document.getElementById("succes").style.display = "none";
+    }, 2000);
+}
+
+
+function time() {
+    setTimeout(hide_exito_mesage(), 2000)
 }
 //----------------------------------------------------------------------------------------------------------------------------
 botonAgregar.addEventListener("click", cargarLocal)

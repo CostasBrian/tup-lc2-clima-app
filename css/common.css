@@ -121,15 +121,18 @@ section.mesages p {
     line-height: 1;
 }
 
-section.mesages .mesage_exito {
+section.mesages #succes {
+    display: none;
     background-color: #28a745;
 }
 
-section.mesages .mesage_error {
+section.mesages #error {
+    display: none;
     background-color: #dc3545;
 }
 
-section.mesages .mesage_encontrada {
+section.mesages #found {
+    display: none;
     background-color: #ffc107;
 }
 

@@ -1,7 +1,7 @@
 const botonAgregar = document.getElementById("agregar") /*recibo valor de boton*/
 const ciudad = document.getElementById("ciudad_a_agregar") /*recibo valor de input de ciudad*/
     //----------------------------------------------------------------------------------------------------------------------------
-    //funcion para comprobar el estado del storage
+    //funcion para comprobar el estado del localstorage
 function leerLocal() {
     let lista = localStorage.getItem("Lista_Ciudades") /*leo el contenido de sessionstorage y lo ingreso en una lista*/
     lista = JSON.parse(lista) /*convierte a array*/
@@ -17,9 +17,9 @@ function leerLocal() {
             return found_mesage()
         }
     } else {
-        lista = [] /*sino se crea la lista*/
+        lista = [] /*si esta vacia se crea la lista*/
     }
-    return lista //devuelve la lista convertida para en arreglo para agregarle la ciudad
+    return lista //devuelve la lista convertida en arreglo para agregarle la ciudad
 }
 //---------------------------------------------------------------------------------------------------------------------------
 //funcion para cargar las ciudades al storage 
@@ -39,29 +39,24 @@ function limpiarInput() {
 //----------------------------------------------------------------------------------------------------------------------------
 //funciones para mostrar mensajes y ocultarlos
 function exito_mesage() {
-    setTimeout(() => {
-        document.getElementById("succes").style.display = "block";
-    }, 0);
+    document.getElementById("succes").style.display = "block";
+
 
     setTimeout(() => {
         document.getElementById("succes").style.display = "none";
     }, 3000);
 }
-//----------------------------------------------------------------------------------------------------------------------------
+
 function found_mesage() {
-    setTimeout(() => {
-        document.getElementById("found").style.display = "block";
-    }, 0);
+    document.getElementById("found").style.display = "block";
 
     setTimeout(() => {
         document.getElementById("found").style.display = "none";
     }, 3000);
 }
-//----------------------------------------------------------------------------------------------------------------------------
+
 function error_mesage() {
-    setTimeout(() => {
-        document.getElementById("error").style.display = "block";
-    }, 0);
+    document.getElementById("error").style.display = "block";
 
     setTimeout(() => {
         document.getElementById("error").style.display = "none";

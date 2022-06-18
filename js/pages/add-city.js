@@ -14,6 +14,7 @@ function leerLocal() {
             }
         }
         if (band == false) {
+            limpiarInput()
             return found_mesage()
         }
     } else {

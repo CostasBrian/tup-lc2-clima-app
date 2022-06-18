@@ -1,37 +1,9 @@
-//----------------------------------------------------------------------------------------------------------------------------
-function error_mesage() {
-    document.getElementById("error").style.display = "block"
-}
-
-function hide_error_mesage() {
-    document.getElementById("error").style.display = "none"
-}
-//----------------------------------------------------------------------------------------------------------------------------
-function exito_mesage() {
-    document.getElementById("succes").style.display = "block"
-}
-
-function hide_exito_mesage() {
-    document.getElementById("succes").style.display = "none"
-}
-//----------------------------------------------------------------------------------------------------------------------------
-function found_mesage() {
-    document.getElementById("found").style.display = "block"
-
-}
-
-function hide_found_mesage() {
-    document.getElementById("found").style.display = "none"
-
-}
-//----------------------------------------------------------------------------------------------------------------------------
-function OcultarContenedores1() {
-    setTimeout(function() {
-        $("#succes").hide(6000);
-    }, 3000);
-}
-
-
-function time() {
-    setTimeout(hide_exito_mesage(), 2000)
+for (i = 0; i <= lista.length; i++) {
+    const select = document.querySelector('select') /*leo elemento html*/
+    const opcion = document.createElement("option") /*creo elemento opcion */
+    cityUpper = lista[i][0].toUpperCase() + lista[i].substring(1)
+    console.log(lista[i][0])
+    opcion.value = cityUpper
+    opcion.textContent = cityUpper /*asigno valor a elemento opcion*/
+    select.appendChild(opcion) /*coloco el opcion como child del select*/
 }

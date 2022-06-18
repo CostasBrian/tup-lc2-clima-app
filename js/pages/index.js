@@ -27,12 +27,18 @@ function ConsultarDatos(city) {
 }
 
 function mostrarDatos(datos) {
+
+    //let ico = datos.weather.icon
     let temp = datos.main.temp
     let sens = datos.main.feels_like
     let hum = datos.main.humidity
     let pres = datos.main.pressure
     let vel_viento = datos.wind.speed
+    let ciudad_buscar = datos.name
+    let ico = datos.weather[0].icon
         //------------------
+    document.getElementById("city").innerHTML = `${ciudad_buscar}`
+    document.getElementById("icon").setAttribute('src', `https://openweathermap.org/img/wn/${ico}@2x.png`)
     document.getElementById("temp").innerHTML = `Temperatura: ${temp}`
     document.getElementById("sensacion").innerHTML = `Sensacion térmica: ${sens}`
     document.getElementById("humedad").innerHTML = `Humedad: ${hum}`

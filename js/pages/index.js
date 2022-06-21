@@ -44,7 +44,9 @@ function mostrarDatos(datos) {
     document.getElementById("viento").innerHTML = `velocidad_viento: ${vel_viento}`
     document.getElementById("presion").innerHTML = `presion: ${pres}`
 
+    document.getElementById("card").style.display = "none";
     document.getElementById("loader").style.display = "flex";
+
     setTimeout(() => {
         document.getElementById("loader").style.display = "none";
     }, 3000);

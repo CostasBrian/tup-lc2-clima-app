@@ -154,3 +154,46 @@ a {
         padding-bottom: 20px;
     }
 }
+
+
+/*Loader-----------------------------------------------------*/
+
+#loader {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    background: var(--color-theme);
+    width: 20px;
+    height: 20px;
+    margin: 0 4px;
+    border-radius: 50%;
+    animation: animate 2s infinite linear;
+}
+
+.circle:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.circle:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.circle:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+@keyframes animate {
+    0%,
+    100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}

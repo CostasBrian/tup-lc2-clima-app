@@ -15,7 +15,15 @@ function leerLocal() {
         }
         if (band == false) {
             limpiarInput()
-            return found_mesage()
+            document.getElementById("loader").style.display = "flex";
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+            }, 3000);
+            setTimeout(() => {
+                found_mesage()
+            }, 3000);
+
+            return false
         }
     } else {
         lista = [] /*si esta vacia se crea la lista*/
@@ -28,8 +36,15 @@ function cargarLocal() {
     let ciudades = leerLocal() /*leo la lista generada en otra funcion */
     ciudades.push(ciudad.value) /*agrego la ciudad a la lista*/
     localStorage.setItem("Lista_Ciudades", JSON.stringify(ciudades)); /*fijo los elementos al session storage */
-    exito_mesage()
     limpiarInput()
+    document.getElementById("loader").style.display = "flex";
+    setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+    }, 3000);
+    setTimeout(() => {
+        exito_mesage()
+    }, 3000);
+
 }
 
 //----------------------------------------------------------------------------------------------------------------------------

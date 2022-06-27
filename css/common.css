@@ -5,7 +5,7 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
 }
 
-:root {
+ :root {
     /* Declaro variables CSS con colores principales */
     --color-theme: #00594c;
     --color-active: #5df2d6;
@@ -136,8 +136,9 @@ a {
     background-color: #ffc107;
 }
 
-#empty {
-    display: block;
+#empty,
+#errorMail {
+    display: none;
     background-color: #dc3545;
 }
 
@@ -158,42 +159,35 @@ a {
 
 /*Loader-----------------------------------------------------*/
 
-#loader {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.circle {
-    background: var(--color-theme);
+.loader {
     width: 20px;
     height: 20px;
-    margin: 0 4px;
     border-radius: 50%;
-    animation: animate 2s infinite linear;
+    background: var(--color-theme);
+    box-shadow: 0 0 0 0 var(--color-theme);
+    animation: pl2 1.5s infinite linear;
+    position: relative;
+    display: none;
+    margin-top: 50px;
 }
 
-.circle:nth-child(1) {
-    animation-delay: 0.5s;
+.loader:before,
+.loader:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 var(--color-theme);
+    animation: inherit;
+    animation-delay: -0.5s;
 }
 
-.circle:nth-child(2) {
-    animation-delay: 1s;
+.loader:after {
+    animation-delay: -1s;
 }
 
-.circle:nth-child(3) {
-    animation-delay: 1.5s;
-}
-
-@keyframes animate {
-    0%,
+@keyframes pl2 {
     100% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
+        box-shadow: 0 0 0 40px rgba(0, 0, 0, 0)
     }
 }

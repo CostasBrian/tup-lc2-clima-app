@@ -1,7 +1,13 @@
 const botonAgregar = document.getElementById("agregar") /*recibo valor de boton*/
 const ciudad = document.getElementById("ciudad_a_agregar") /*recibo valor de input de ciudad*/
-    //----------------------------------------------------------------------------------------------------------------------------
-    //funcion para comprobar el estado del localstorage
+const exitoMensaje = document.getElementById("succes")
+const errorMensaje = document.getElementById("error")
+const encontradaMensaje = document.getElementById("found")
+const loader = document.getElementById("loader")
+
+
+
+//--------------funcion para comprobar el estado del localstorage-------------------------
 function leerLocal() {
     let lista = localStorage.getItem("Lista_Ciudades") /*leo el contenido de sessionstorage y lo ingreso en una lista*/
     lista = JSON.parse(lista) /*convierte a array*/
@@ -14,15 +20,14 @@ function leerLocal() {
             }
         }
         if (band == false) {
-            limpiarInput()
-            document.getElementById("loader").style.display = "flex";
+            ciudad.value = ""
+            loader.style.display = "flex";
             setTimeout(() => {
-                document.getElementById("loader").style.display = "none";
-            }, 3000);
+                loader.style.display = "none";
+            }, 2000);
             setTimeout(() => {
                 found_mesage()
-            }, 3000);
-
+            }, 2000);
             return false
         }
     } else {
@@ -30,54 +35,69 @@ function leerLocal() {
     }
     return lista //devuelve la lista convertida en arreglo para agregarle la ciudad
 }
-//---------------------------------------------------------------------------------------------------------------------------
-//funcion para cargar las ciudades al storage 
+
+//-----------------funcion para cargar las ciudades al storage-----------------------------
 function cargarLocal() {
     let ciudades = leerLocal() /*leo la lista generada en otra funcion */
     ciudades.push(ciudad.value) /*agrego la ciudad a la lista*/
     localStorage.setItem("Lista_Ciudades", JSON.stringify(ciudades)); /*fijo los elementos al session storage */
-    limpiarInput()
-    document.getElementById("loader").style.display = "flex";
+    ciudad.value = ""
+    loader.style.display = "flex";
     setTimeout(() => {
-        document.getElementById("loader").style.display = "none";
-    }, 3000);
+        loader.style.display = "none";
+    }, 2000);
     setTimeout(() => {
         exito_mesage()
-    }, 3000);
-
+    }, 2000);
 }
-
-//----------------------------------------------------------------------------------------------------------------------------
-//funcion para limpiar el input
-function limpiarInput() {
-    ciudad.value = ""
-}
-//----------------------------------------------------------------------------------------------------------------------------
-//funciones para mostrar mensajes y ocultarlos
+//---------------funciones para mostrar mensajes y ocultarlos-------------------------------
 function exito_mesage() {
-    document.getElementById("succes").style.display = "block";
-
-
+    exitoMensaje.style.display = "block";
     setTimeout(() => {
-        document.getElementById("succes").style.display = "none";
+        exitoMensaje.style.display = "none";
     }, 3000);
 }
 
 function found_mesage() {
-    document.getElementById("found").style.display = "block";
-
+    encontradaMensaje.style.display = "block";
     setTimeout(() => {
-        document.getElementById("found").style.display = "none";
+        encontradaMensaje.style.display = "none";
     }, 3000);
 }
 
 function error_mesage() {
-    document.getElementById("error").style.display = "block";
-
+    errorMensaje.style.display = "block";
     setTimeout(() => {
-        document.getElementById("error").style.display = "none";
+        errorMensaje.style.display = "none";
     }, 3000);
 }
-//----------------------------------------------------------------------------------------------------------------------------
-botonAgregar.addEventListener("click", cargarLocal)
-    /*escucho el click de agregar*/
+
+//--------------escucho el click de agregar--------------------------------------------------
+botonAgregar.addEventListener("click", function() {
+    ConsultarDatos(ciudad.value)
+})
+
+
+//------------Extra: comprobar existencia de ciudad--------------------------------------------
+function ConsultarDatos(city) {
+    const key = 'cf3c32eca5c309cab34ab9b732fd66a3'
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric&lang=es`)
+        .then(response => response.json())
+        .then(data => validar(data))
+}
+
+function validar(datos) {
+    let codigo = datos.cod
+    if (codigo == "404") {
+        ciudad.value = ""
+        loader.style.display = "flex";
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 2000);
+        setTimeout(() => {
+            error_mesage()
+        }, 2000);
+    } else {
+        cargarLocal()
+    }
+}

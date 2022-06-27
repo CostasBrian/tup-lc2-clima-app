@@ -1,5 +1,6 @@
-//---------------------------------------------------------------------------------------------
-//consulto datos de localStorage
+const loader = document.getElementById("loader")
+
+//------------------consulto datos de localStorage------------------------------
 ciudad_get = localStorage.getItem("Lista_Ciudades") /*leo sessionstorge*/
 lista = JSON.parse(ciudad_get)
 if (lista) {
@@ -14,8 +15,8 @@ for (i = 0; i <= lista.length; i++) {
     opcion.textContent = lista[i] /*asigno contenido a elemento opcion*/
     select.appendChild(opcion) /*coloco el opcion como child del select*/
 }
-//---------------------------------------------------------------------------------------------
-//solicitud a la API
+//-------------solicitud a la API-----------------------------------------------
+
 const botonConsultar = document.getElementById("consultar")
 const seleccionCiudad = document.getElementById("seleccionable")
 
@@ -35,7 +36,8 @@ function mostrarDatos(datos) {
     let hum = datos.main.humidity
     let vel_viento = datos.wind.speed
     let pres = datos.main.pressure
-        /*páso los valores a los elementos del dom*/
+
+    /*páso los valores a los elementos del dom*/
     document.getElementById("city").innerHTML = `${ciudad_buscar}`
     document.getElementById("icon").setAttribute('src', `https://openweathermap.org/img/wn/${ico}@2x.png`)
     document.getElementById("temp").innerHTML = `Temperatura: ${temp}`
@@ -45,10 +47,10 @@ function mostrarDatos(datos) {
     document.getElementById("presion").innerHTML = `presion: ${pres}`
 
     document.getElementById("card").style.display = "none";
-    document.getElementById("loader").style.display = "flex";
+    loader.style.display = "block";
 
     setTimeout(() => {
-        document.getElementById("loader").style.display = "none";
+        loader.style.display = "none";
     }, 3000);
     setTimeout(() => {
         document.getElementById("card").style.display = "flex";
@@ -56,6 +58,7 @@ function mostrarDatos(datos) {
 
 }
 
+//-------------escucho el click de consultar datos-----------------------------------------------
 botonConsultar.addEventListener("click", async() => {
     const ciudad = seleccionCiudad.value
     const resultadoClima = await ConsultarDatos(ciudad)

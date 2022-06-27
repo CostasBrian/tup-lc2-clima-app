@@ -27,7 +27,7 @@ div.inputs {
     justify-content: center;
 }
 
-div.inputs .button {
+.button {
     border: 0px;
     background-color: #00594c;
     color: white;
@@ -37,7 +37,8 @@ div.inputs .button {
     margin: 10px 3px 30px;
 }
 
-section p {
+
+/* section p {
     font-size: 14px;
     color: white;
     background-color: #dc3545;
@@ -45,7 +46,7 @@ section p {
     width: 400px;
     text-align: center;
     padding: 15px;
-}
+} */
 
 
 /*se realizo para cuando este la pantalla maximizada se vea como el resultado del ejemplo del pdf*/

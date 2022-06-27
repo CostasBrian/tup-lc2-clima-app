@@ -9,6 +9,12 @@
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/pages/help.css">
+
+    <script defer src="/js/pages/help.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('GQbvX7uq-1JY8Ojjr')
+    </script>
 </head>
 
 <body>
@@ -35,26 +41,29 @@
             <p>para poder consultar el clima, primero deberá <a href="add-city.html">Agregar una Ciudad</a> y luego seleccionar la Ciudad en cuestion desde la página <a href="index.html">Clima.</a> </p>
         </div>
         <section>
-            <form class="form" action="">
+            <form id="form" class="form" action="">
                 <label for="nombre">Nombre:</label>
                 <input type="text" name="nombre" id="nombre">
+
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email">
+
                 <label for="Mensaje">Mensaje:</label>
                 <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+
                 <div class="inputs">
                     <input class="button" type="reset" value="Limpiar">
-                    <input class="button" type="submit" name="Enviar">
+                    <input class="button" type="submit" id="button" value="Enviar">
                 </div>
             </form>
         </section>
-        <section>
-            <p>Ingrese un <b>Email</b> válido</p>
+        <section class="mesages">
+            <p id="errorMail">Ingrese un <b>Email</b> válido</p>
         </section>
     </main>
     <footer>
         <p>
-            Desarrollado con ♥ - LC2
+            Develop by Brian Costas - LC2
         </p>
     </footer>
 </body>

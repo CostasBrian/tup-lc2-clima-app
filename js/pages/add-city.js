@@ -5,7 +5,7 @@ const errorMensaje = document.getElementById("error")
 const encontradaMensaje = document.getElementById("found")
 const loader = document.getElementById("loader")
 
-//-------------------Comprobar el estado del localstorage--------------------------------
+//--------------------Comprobar el estado del localstorage--------------------------------
 function leerLocal() {
     let lista = localStorage.getItem("Lista_Ciudades")
     lista = JSON.parse(lista)

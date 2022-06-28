@@ -136,10 +136,24 @@ a {
     background-color: #ffc107;
 }
 
-#empty,
+#empty {
+    display: block;
+    background-color: #dc3545;
+}
+
 #errorMail {
     display: none;
     background-color: #dc3545;
+}
+
+#vacio {
+    display: none;
+    background-color: #dc3545;
+}
+
+#enviado {
+    display: none;
+    background-color: #28a745;
 }
 
 
@@ -157,7 +171,7 @@ a {
 }
 
 
-/*Loader-----------------------------------------------------*/
+/*----------------Loader--------------------------*/
 
 .loader {
     width: 20px;

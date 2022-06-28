@@ -1,19 +1,59 @@
 const btn = document.getElementById('button');
+const limpiar = document.getElementById('limpiar');
 const formulario = document.getElementById('form')
+const nombre = document.getElementById('nombre')
+const email = document.getElementById('email')
+const mensaje = document.getElementById('mensaje')
 
-formulario.addEventListener('submit', function() {
+const camposVacios = document.getElementById('vacio')
+const errorMail = document.getElementById('errorMail')
+const mensajeEnviado = document.getElementById('enviado')
 
-    btn.value = 'Sending...';
+//-------------------EXTRA: Envio de Email con emailjs---------------------------------
+formulario.addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    const serviceID = 'service_ak20yfj';
-    const templateID = 'template_3yb8552';
+    if (nombre.value !== "" || email.value !== "" || mensaje.value !== "") { //si no esta vacio
+        if (!validateEmail(email.value)) {
+            errorMail.style.display = "block";
+            setTimeout(() => {
+                errorMail.style.display = "none";
+            }, 3000);
+        } else {
+            btn.value = 'Enviando...';
 
-    emailjs.sendForm(serviceID, templateID, this)
-        .then(() => {
-            btn.value = 'Send Email';
-            alert('Sent!');
-        }, (err) => {
-            btn.value = 'Send Email';
-            alert(JSON.stringify(err));
-        });
-});
+            const serviceID = 'service_ak20yfj';
+            const templateID = 'template_3yb8552';
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    btn.value = 'Enviar';
+                    mensajeEnviado.style.display = "block";
+                    setTimeout(() => {
+                        mensajeEnviado.style.display = "none";
+                    }, 3000);
+                }, (err) => {
+                    btn.value = 'Enviar';
+                    alert(JSON.stringify(err));
+                });
+        }
+    } else {
+        camposVacios.style.display = "block";
+        setTimeout(() => {
+            camposVacios.style.display = "none";
+        }, 3000);
+    }
+})
+
+//------------validar email---------------------
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+//------------limpiar formulario----------------
+function Limpiar() {
+    nombre.value = ""
+    email.value = ""
+    mensaje.value = ""
+}
+limpiar.addEventListener('click', Limpiar)

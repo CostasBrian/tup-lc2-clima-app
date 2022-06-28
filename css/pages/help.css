@@ -34,19 +34,8 @@ div.inputs {
     border-radius: 8px;
     padding: 10px;
     width: fit-content;
-    margin: 10px 3px 30px;
+    margin: 10px 3px 0px;
 }
-
-
-/* section p {
-    font-size: 14px;
-    color: white;
-    background-color: #dc3545;
-    border-radius: 15px;
-    width: 400px;
-    text-align: center;
-    padding: 15px;
-} */
 
 
 /*se realizo para cuando este la pantalla maximizada se vea como el resultado del ejemplo del pdf*/

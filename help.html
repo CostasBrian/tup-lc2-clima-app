@@ -9,11 +9,12 @@
     <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/pages/help.css">
-
+    <!-- Scripts JS -->
     <script defer src="/js/pages/help.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
     <script type="text/javascript">
-        emailjs.init('GQbvX7uq-1JY8Ojjr')
+        emailjs.init("GQbvX7uq-1JY8Ojjr");
     </script>
 </head>
 
@@ -52,13 +53,15 @@
                 <textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
 
                 <div class="inputs">
-                    <input class="button" type="reset" value="Limpiar">
+                    <input class="button" type="reset" id="limpiar" value="Limpiar">
                     <input class="button" type="submit" id="button" value="Enviar">
                 </div>
             </form>
         </section>
         <section class="mesages">
             <p id="errorMail">Ingrese un <b>Email</b> válido</p>
+            <p id="vacio">No se puede enviar con campos vacios</p>
+            <p id="enviado">El mensaje se envio correctamente</p>
         </section>
     </main>
     <footer>

@@ -15,7 +15,7 @@ for (i = 0; i <= lista.length; i++) {
     opcion.textContent = lista[i] /*asigno contenido a elemento opcion*/
     select.appendChild(opcion) /*coloco el opcion como child del select*/
 }
-//-------------solicitud a la API-----------------------------------------------
+//-----------------------------solicitud a la API-----------------------------------------------
 
 const botonConsultar = document.getElementById("consultar")
 const seleccionCiudad = document.getElementById("seleccionable")
@@ -28,7 +28,6 @@ function ConsultarDatos(city) {
 }
 
 function mostrarDatos(datos) {
-    /*extraigo elementos del local storage*/
     let ciudad_buscar = datos.name
     let ico = datos.weather[0].icon
     let temp = datos.main.temp
@@ -36,29 +35,38 @@ function mostrarDatos(datos) {
     let hum = datos.main.humidity
     let vel_viento = datos.wind.speed
     let pres = datos.main.pressure
+        //-------------EXTRA: contemplar errores de la respuesta de API-----------------------
+    let codigo = datos.cod
+    if (codigo == "404") {
+        ciudad.value = ""
+        loader.style.display = "flex";
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 2000);
+        setTimeout(() => {
+            error_mesage()
+        }, 2000);
+    } else {
+        document.getElementById("city").innerHTML = `${ciudad_buscar}`
+        document.getElementById("icon").setAttribute('src', `https://openweathermap.org/img/wn/${ico}@2x.png`)
+        document.getElementById("temp").innerHTML = `Temperatura: ${temp}°`
+        document.getElementById("sensacion").innerHTML = `Sensacion térmica: ${sens}°`
+        document.getElementById("humedad").innerHTML = `Humedad: ${hum}%`
+        document.getElementById("viento").innerHTML = `velocidad_viento: ${vel_viento}km/h`
+        document.getElementById("presion").innerHTML = `presion: ${pres}P`
 
-    /*páso los valores a los elementos del dom*/
-    document.getElementById("city").innerHTML = `${ciudad_buscar}`
-    document.getElementById("icon").setAttribute('src', `https://openweathermap.org/img/wn/${ico}@2x.png`)
-    document.getElementById("temp").innerHTML = `Temperatura: ${temp}`
-    document.getElementById("sensacion").innerHTML = `Sensacion térmica: ${sens}`
-    document.getElementById("humedad").innerHTML = `Humedad: ${hum}`
-    document.getElementById("viento").innerHTML = `velocidad_viento: ${vel_viento}`
-    document.getElementById("presion").innerHTML = `presion: ${pres}`
-
-    document.getElementById("card").style.display = "none";
-    loader.style.display = "block";
-
-    setTimeout(() => {
-        loader.style.display = "none";
-    }, 3000);
-    setTimeout(() => {
-        document.getElementById("card").style.display = "flex";
-    }, 3000);
-
+        document.getElementById("card").style.display = "none";
+        loader.style.display = "block";
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 3000);
+        setTimeout(() => {
+            document.getElementById("card").style.display = "flex";
+        }, 3000);
+    }
 }
 
-//-------------escucho el click de consultar datos-----------------------------------------------
+//-------------escucho el click de consultar datos-----------------------------------------
 botonConsultar.addEventListener("click", async() => {
     const ciudad = seleccionCiudad.value
     const resultadoClima = await ConsultarDatos(ciudad)

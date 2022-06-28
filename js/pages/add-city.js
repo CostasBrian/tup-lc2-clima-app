@@ -5,9 +5,7 @@ const errorMensaje = document.getElementById("error")
 const encontradaMensaje = document.getElementById("found")
 const loader = document.getElementById("loader")
 
-
-
-//--------------funcion para comprobar el estado del localstorage-------------------------
+//-------------------Comprobar el estado del localstorage--------------------------------
 function leerLocal() {
     let lista = localStorage.getItem("Lista_Ciudades") /*leo el contenido de sessionstorage y lo ingreso en una lista*/
     lista = JSON.parse(lista) /*convierte a array*/
@@ -36,7 +34,7 @@ function leerLocal() {
     return lista //devuelve la lista convertida en arreglo para agregarle la ciudad
 }
 
-//-----------------funcion para cargar las ciudades al storage-----------------------------
+//--------------------Cargar las ciudades al storage-----------------------------
 function cargarLocal() {
     let ciudades = leerLocal() /*leo la lista generada en otra funcion */
     ciudades.push(ciudad.value) /*agrego la ciudad a la lista*/
@@ -50,7 +48,7 @@ function cargarLocal() {
         exito_mesage()
     }, 2000);
 }
-//---------------funciones para mostrar mensajes y ocultarlos-------------------------------
+//--------------------Mostrar mensajes y ocultarlos-------------------------------
 function exito_mesage() {
     exitoMensaje.style.display = "block";
     setTimeout(() => {
@@ -72,13 +70,13 @@ function error_mesage() {
     }, 3000);
 }
 
-//--------------escucho el click de agregar--------------------------------------------------
+//------------------------Escucho el click de agregar-----------------------------------
 botonAgregar.addEventListener("click", function() {
     ConsultarDatos(ciudad.value)
 })
 
 
-//------------Extra: comprobar existencia de ciudad--------------------------------------------
+//-------------------Extra: comprobar existencia de ciudad-------------------------------
 function ConsultarDatos(city) {
     const key = 'cf3c32eca5c309cab34ab9b732fd66a3'
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric&lang=es`)

@@ -9,11 +9,11 @@ const camposVacios = document.getElementById('vacio')
 const errorMail = document.getElementById('errorMail')
 const mensajeEnviado = document.getElementById('enviado')
 
-//-------------------EXTRA: Envio de Email con emailjs---------------------------------
+//-------------------Extra: Envio de Email con emailjs---------------------------------
 formulario.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    if (nombre.value !== "" || email.value !== "" || mensaje.value !== "") { //si no esta vacio
+    if (nombre.value !== "" || email.value !== "" || mensaje.value !== "") {
         if (!validateEmail(email.value)) {
             errorMail.style.display = "block";
             setTimeout(() => {
@@ -44,13 +44,13 @@ formulario.addEventListener('submit', function(event) {
     }
 })
 
-//------------validar email---------------------
+//------------Validar email---------------------
 function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
 }
 
-//------------limpiar formulario----------------
+//------------Limpiar formulario----------------
 function Limpiar() {
     nombre.value = ""
     email.value = ""

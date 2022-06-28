@@ -1,5 +1,5 @@
-const botonAgregar = document.getElementById("agregar") /*recibo valor de boton*/
-const ciudad = document.getElementById("ciudad_a_agregar") /*recibo valor de input de ciudad*/
+const botonAgregar = document.getElementById("agregar")
+const ciudad = document.getElementById("ciudad_a_agregar")
 const exitoMensaje = document.getElementById("succes")
 const errorMensaje = document.getElementById("error")
 const encontradaMensaje = document.getElementById("found")
@@ -7,8 +7,8 @@ const loader = document.getElementById("loader")
 
 //-------------------Comprobar el estado del localstorage--------------------------------
 function leerLocal() {
-    let lista = localStorage.getItem("Lista_Ciudades") /*leo el contenido de sessionstorage y lo ingreso en una lista*/
-    lista = JSON.parse(lista) /*convierte a array*/
+    let lista = localStorage.getItem("Lista_Ciudades")
+    lista = JSON.parse(lista)
     let band = true
     if (lista) {
         for (let i = 0; i < lista.length; i++) {
@@ -29,16 +29,16 @@ function leerLocal() {
             return false
         }
     } else {
-        lista = [] /*si esta vacia se crea la lista*/
+        lista = []
     }
-    return lista //devuelve la lista convertida en arreglo para agregarle la ciudad
+    return lista
 }
 
 //--------------------Cargar las ciudades al storage-----------------------------
 function cargarLocal() {
-    let ciudades = leerLocal() /*leo la lista generada en otra funcion */
-    ciudades.push(ciudad.value) /*agrego la ciudad a la lista*/
-    localStorage.setItem("Lista_Ciudades", JSON.stringify(ciudades)); /*fijo los elementos al session storage */
+    let ciudades = leerLocal()
+    ciudades.push(ciudad.value)
+    localStorage.setItem("Lista_Ciudades", JSON.stringify(ciudades));
     ciudad.value = ""
     loader.style.display = "flex";
     setTimeout(() => {

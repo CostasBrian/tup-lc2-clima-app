@@ -1,7 +1,7 @@
 const loader = document.getElementById("loader")
 
-//------------------consulto datos de localStorage------------------------------
-ciudad_get = localStorage.getItem("Lista_Ciudades") /*leo sessionstorge*/
+//------------------Consulto datos de localStorage------------------------------
+ciudad_get = localStorage.getItem("Lista_Ciudades")
 lista = JSON.parse(ciudad_get)
 if (lista) {
     document.getElementById("empty").style.display = "none";
@@ -9,13 +9,13 @@ if (lista) {
 
 /*bucle para crear las opciones a medida q se ingresa una ciudad*/
 for (i = 0; i <= lista.length; i++) {
-    const select = document.querySelector('select') /*leo elemento html*/
-    const opcion = document.createElement("option") /*creo elemento opcion */
-    opcion.value = lista[i] /*asigno valor a elemento opcion*/
-    opcion.textContent = lista[i] /*asigno contenido a elemento opcion*/
-    select.appendChild(opcion) /*coloco el opcion como child del select*/
+    const select = document.querySelector('select')
+    const opcion = document.createElement("option")
+    opcion.value = lista[i]
+    opcion.textContent = lista[i]
+    select.appendChild(opcion)
 }
-//-----------------------------solicitud a la API-----------------------------------------------
+//-----------------------------Solicitud a la API-----------------------------------------------
 
 const botonConsultar = document.getElementById("consultar")
 const seleccionCiudad = document.getElementById("seleccionable")
@@ -35,7 +35,7 @@ function mostrarDatos(datos) {
     let hum = datos.main.humidity
     let vel_viento = datos.wind.speed
     let pres = datos.main.pressure
-        //-------------EXTRA: contemplar errores de la respuesta de API-----------------------
+        //-------------Extra: contemplar errores de la respuesta de API-----------------------
     let codigo = datos.cod
     if (codigo == "404") {
         ciudad.value = ""
@@ -66,7 +66,7 @@ function mostrarDatos(datos) {
     }
 }
 
-//-------------escucho el click de consultar datos-----------------------------------------
+//-------------Escucho el click de consultar datos-----------------------------------------
 botonConsultar.addEventListener("click", async() => {
     const ciudad = seleccionCiudad.value
     const resultadoClima = await ConsultarDatos(ciudad)

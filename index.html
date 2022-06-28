@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clima App</title>
     <link rel="icon" href="img/icono.ico">
+    <!-- Estilos CSS -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/pages/index.css">
+    <!-- Scripts JS -->
     <script defer src="js/pages/index.js"></script>
 </head>
 
@@ -25,21 +27,17 @@
             </ul>
         </nav>
     </header>
-    <!-- Contenido principal de la página -->
     <main>
         <h2>El Clima Ahora</h2>
         <section id="form-city-list">
             <form id="form">
-                <!-- Sección donde se debe colocar el formulario, con el select y el botón de consultar -->
                 <select name="seleccionable" id="seleccionable">
                     <option disabled selected >Seleccionar Ciudad</option>
-                    <!-- aca se crea codigo mediante js -->
                 </select>
                 <input id="consultar" class="button" type="button" value="Consultar">
             </form>
         </section>
         <section id="section-weather-result">
-            <!-- Sección donde se debe mostrar el clima de la ciudad -->
             <div class="mesages">
                 <p id="empty">No hay ciudades cargadas</p>
             </div>
